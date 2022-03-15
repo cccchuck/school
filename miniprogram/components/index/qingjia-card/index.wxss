@@ -1,0 +1,85 @@
+/* components/index/qingjia-card/index.wxss */
+.gray {
+  filter: grayscale(1);
+}
+
+.cpn-card-wrapper {
+  margin-top: 1em;
+}
+
+.cpn-card-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.cpn-card-content .reason {
+  font-weight: bold;
+}
+
+.cpn-card-content .type {
+  margin-top: 1.2rem;
+  font-size: 0.9em;
+}
+
+.cpn-card-content .begin-time {
+  margin-top: 0.5rem;
+  font-size: 0.8em;
+}
+
+.cpn-card-content .end-time {
+  font-size: 0.8em;
+}
+
+.cpn-card-content .status .center {
+  position: relative;
+}
+
+.cpn-card-content .status .center text {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100px;
+  text-align: center;
+  font-size: 0.8em;
+  color: #565656;
+}
+
+.cpn-card-content .status .center .ing {
+  color: #f0b394;
+}
+
+.cpn-icon-text {
+  display: flex;
+  align-items: center;
+}
+
+.cpn-icon-text image {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.cpn-card-bar {
+  padding: 10px 40px;
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9em;
+}
+
+.cpn-card-bar .cpn-icon-text + .cpn-icon-text {
+  margin-left: 2em;
+}
+
+/* 假期中 */
+.linear-gradient-ing {
+  background-image: linear-gradient(180deg, #f0b294 0%, #e18286 100%);
+}
+
+.cpn-card-wrapper {
+  border: 1px solid #e18286;
+  border-radius: 20px;
+  overflow: hidden;
+}

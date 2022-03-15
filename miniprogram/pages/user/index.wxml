@@ -1,0 +1,34 @@
+<!--miniprogram/pages/user/index.wxml-->
+<view class="contact-wrapper">
+  <van-cell-group>
+    <van-field
+      model:value="{{ name }}"
+      label="学生姓名"
+      placeholder="请输入你的姓名"
+    />
+    <van-field
+      model:value="{{ school }}"
+      label="学生学院"
+      placeholder="请输入你的学院"
+    />
+    <van-field
+      model:value="{{ tname }}"
+      label="导员姓名"
+      placeholder="请输入导员姓名"
+    />
+    <view class="avatar">
+      <text>导员头像</text>
+      <view wx:if="{{ !avatar }}">
+        <van-uploader
+        bind:after-read="afterRead"
+        max-count="1"/>
+      </view>
+      <view wx:else>
+        <image src="{{ avatar }}"></image>
+      </view>
+    </view>
+  </van-cell-group>
+  <view class="button">
+    <van-button round type="info" bind:click="saveInfo" >保存信息</van-button>
+  </view>
+</view>

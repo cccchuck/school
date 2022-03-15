@@ -1,0 +1,4 @@
+<!--miniprogram/pages/contact/index.wxml-->
+<view class="contact-wrapper">
+  <van-empty description="正在开发中..." />
+</view>

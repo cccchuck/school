@@ -1,0 +1,28 @@
+/* miniprogram/pages/user/index.wxss */
+.button {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.avatar {
+  color: var(--field-label-color, #646566);
+  display: flex;
+  align-items: center;
+  font-size: var(--cell-font-size, 14px);
+  padding: var(--cell-vertical-padding, 10px)
+           var(--cell-horizontal-padding, 16px);
+  border-bottom: 1px solid #ebedf0;
+}
+
+.avatar text {
+  max-width: 6.2em;
+  min-width: 6.2em;
+  margin-right: 12px;
+}
+
+.avatar image {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+}

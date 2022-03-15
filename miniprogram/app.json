@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/contact/index",
+    "pages/user/index",
+    "pages/index-detail/index",
+    "pages/index-qingjia/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#61b077",
+    "navigationBarTitleText": "我在校园",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor": "#4875bf",
+    "borderStyle": "white",
+    "list": [
+      {
+        "iconPath": "./assets/tabbar/workspace_u.jpeg",
+        "selectedIconPath": "./assets/tabbar/workspace.jpeg",
+        "pagePath": "pages/index/index",
+        "text": "工作台"
+      },
+      {
+        "iconPath": "./assets/tabbar/contact_u.jpeg",
+        "selectedIconPath": "./assets/tabbar/contact.jpeg",
+        "pagePath": "pages/contact/index",
+        "text": "通讯录"
+      },
+      {
+        "iconPath": "./assets/tabbar/user_u.jpeg",
+        "selectedIconPath": "./assets/tabbar/user.jpeg",
+        "pagePath": "pages/user/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {}
+}

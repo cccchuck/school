@@ -1,0 +1,202 @@
+<!--miniprogram/pages/index-qingjia/index.wxml-->
+<view class="qingjia-wrapper">
+  <!-- Tabs -->
+  <view class="tabs-wrapper">
+    <view class="tabs-content">
+      <iu-tabs
+        index="{{ current }}"
+        tabs="{{ tabs }}"
+        bindSwitchTab="switchTab">
+      </iu-tabs>
+    </view>
+  </view>
+
+  <!-- Swiper -->
+  <view class="swiper-wrapper">
+    <view class="swiper-content">
+      <swiper current="{{ current }}" duration="300" bindchange="swiperChange">
+        <!-- 请假记录 -->
+        <swiper-item>
+          <view class="record-wrapper">
+            <view class="record-content">
+              <jia-card
+                wx:for="{{ leaveData }}"
+                wx:key="ID"
+                bind:destroy="destroy" 
+                content="{{ item }}">
+              </jia-card>
+              <jia-card
+                wx:for="{{ insetLeaveData }}"
+                wx:key="ID"
+                bind:destroy="destroy" 
+                content="{{ item }}">
+              </jia-card>
+            </view>
+          </view>
+        </swiper-item>
+
+        <!-- 提交请假 -->
+        <swiper-item>
+          <view class="submit-wrapper">
+            <view class="submit-content">
+              <!-- 请假类型 -->
+              <view class="form-type border-radius-10">
+                <view class="form-item">
+                  <view class="label">请假类型</view>
+                  <view class="value" bindtap="typeShow">{{ formData.type }}</view>
+                </view>
+              </view>
+
+              <!-- 是否离校 -->
+              <view class="form-leave border-radius-10">
+                <view class="form-item">
+                  <view class="label">是否离校</view>
+                  <view class="value" bindtap="leaveShow">{{ formData.leave }}</view>
+                </view>
+              </view>
+
+              <!-- 离校地点 -->
+              <view class="form-reason border-radius-10" wx:if="{{ formData.leave === '是' }}">
+                <view class="form-item">
+                  <view class="label">外出地点</view>
+                  <view class="value">
+                    <textarea cols="30" rows="5" placeholder="请在此详细写明外出地点" bindblur="enterLocation"></textarea>
+                  </view>
+                </view>
+              </view>
+
+              <!-- 开始时间 -->
+              <view class="form-begin-time border-radius-10">
+                <view class="form-item">
+                  <view class="label">开始时间</view>
+                  <view class="value" bindtap="beginTimeShow">{{ formData.beginTime }}</view>
+                </view>
+              </view>
+
+              <!-- 结束时间 -->
+              <view class="form-end-time border-radius-10">
+                <view class="form-item">
+                  <view class="label">结束时间</view>
+                  <view class="value" bindtap="endTimeShow">{{ formData.endTime }}</view>
+                </view>
+              </view>
+
+              <!-- 销假地点 -->
+              <view class="form-location border-radius-10">
+                <view class="form-item">
+                  <view class="label">销假地点</view>
+                  <view class="value" bindtap="locationShow">{{ formData.location }}</view>
+                </view>
+              </view>
+
+              <!-- 紧急联系人 -->
+              <view class="form-emergency-contact border-radius-10">
+                <view class="form-item">
+                  <view class="label">紧急联系人</view>
+                  <view class="value">
+                    <input type="number" placeholder="紧急联系人电话" bindblur="enterEmergencyContact" />
+                  </view>
+                </view>
+              </view>
+
+              <!-- 请假事由 -->
+              <view class="form-reason border-radius-10">
+                <view class="form-item">
+                  <view class="label">请假事由</view>
+                  <view class="value">
+                    <textarea cols="30" rows="5" placeholder="请在此详细写明请假事由" bindblur="enterReason"></textarea>
+                  </view>
+                </view>
+              </view>
+
+              <!-- 证明材料 -->
+              <view class="form-document border-radius-10">
+                <view class="form-item">
+                  <view class="label">请上传相关附件证明材料</view>
+                  <view class="value">
+                    <van-uploader file-list="{{ uploadFileList }}" upload-icon="plus" />
+                  </view>
+                </view>
+              </view>
+
+              <!-- 保存按钮 -->
+              <button class="border-radius-10" bindtap="enter">确认保存</button>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+  <!-- picker -->
+  <view class="picker-wrapper">
+    <view class="picker-content">
+      <!-- 请假类型选择器 -->
+      <van-popup
+        show="{{ pickerData.typeShow }}"
+        position="bottom"
+        bind:close="typeShowClose"
+        >
+        <van-picker
+          show-toolbar 
+          columns="{{ pickerData.type }}" 
+          bind:confirm="onTypeChange"
+          bind:cancel="typeShowClose"/>
+      </van-popup>
+
+      <!-- 是否离校选择器 -->
+      <van-popup 
+        show="{{ pickerData.leaveShow }}"
+        position="bottom"
+        bind:close="leaveShowClose"
+        >
+        <van-picker
+          show-toolbar
+          columns="{{ pickerData.leave }}"
+          bind:confirm="onLeaveChange"
+          bind:cancel="leaveShowClose"/>
+      </van-popup>
+      
+      <!-- 开始时间选择器 -->
+      <van-popup 
+        show="{{ pickerData.beginTimeShow }}"
+        position="bottom"
+        bind:close="beginTimeClose"
+        >
+        <van-datetime-picker
+          type="datetime"
+          min-date="{{ minDate }}" 
+          max-date="{{ maxDate }}"
+          bind:confirm="onBeginTimeConfirm"
+          bind:cancel="beginTimeShowClose"/>
+      </van-popup>
+
+      <!-- 结束时间选择器 -->
+      <van-popup 
+        show="{{ pickerData.endTimeShow }}"
+        position="bottom"
+        bind:close="endTimeShowClose"
+        >
+        <van-datetime-picker
+          type="datetime"
+          min-date="{{ minDate }}" 
+          max-date="{{ maxDate }}"
+          bind:confirm="onEndTimeConfirm"
+          bind:cancel="endTimeShowClose" />
+      </van-popup>
+
+      <!-- 销假地点选择器 -->
+      <van-popup 
+        show="{{ pickerData.locationShow }}"
+        position="bottom"
+        bind:close="locationShowClose"
+        >
+        <van-picker
+          show-toolbar 
+          columns="{{ pickerData.location }}" 
+          bind:confirm="onLocationChange"
+          bind:cancel="locationShowClose"/>
+      </van-popup>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+<!--components/common/iu-tabs/index.wxml-->
+<view class="cpn-tabs-wrapper">
+  <view class="cpn-tabs-content">
+    <view 
+      class="cpn-tab-item {{ index === _index ? 'active': '' }}"
+      bindtap="switchTab"
+      data-index="{{ _index }}"
+      wx:for="{{ tabs }}"
+      wx:for-index="_index"
+      wx:key="item">
+      {{ item }}
+    </view>
+  </view>
+</view>

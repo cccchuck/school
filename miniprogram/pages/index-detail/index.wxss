@@ -1,0 +1,150 @@
+/* miniprogram/pages/index-detail/index.wxss */
+.app-detail-content {
+  width: 100vw;
+  height: 100vh;
+  padding: 10px;
+  background-color: #f4f4f4;
+  box-sizing: border-box;
+}
+
+.app-detail-content .student-info {
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.app-detail-content .student-info .info {
+  display: flex;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.app-detail-content .student-info .info .name {
+  margin-left: 1em;
+}
+
+.app-detail-content .student-info .info .name view:first-child {
+  font-weight: 600;
+  color: black;
+}
+
+.app-detail-content .student-info .info .name view {
+  color: #565656;
+}
+
+.app-detail-content .student-info .info .type {
+  flex: 1;
+  font-size: 0.9em;
+  text-align: right;
+}
+
+.app-detail-content .student-info .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.app-detail-content .student-info .detail {
+  margin-top: 1em;
+}
+
+.app-detail-content .student-info .detail view + view {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #565656;
+}
+
+.app-detail-content .student-info .detail .begin-time,
+.app-detail-content .student-info .detail .end-time,
+.app-detail-content .student-info .detail .leave {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: black;
+}
+
+.app-detail-content .student-info .detail .end-time,
+.app-detail-content .student-info .detail .leave {
+  margin-top: 0.5rem;
+}
+
+.app-detail-content .teacher-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 1em;
+}
+
+.app-detail-content .teacher-info .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.app-detail-content .teacher-info .avatar open-data {
+  border-radius: 50%;
+}
+
+.app-detail-content .teacher-info .avatar image:first-child {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.app-detail-content .teacher-info .avatar image:last-child {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  right: 2px;
+  bottom: 0;
+}
+
+.app-detail-content .teacher-info .name {
+  flex: 1;
+  margin-left: 0.5em;
+}
+
+.app-detail-content .teacher-info .name view:first-child text:first-child {
+  font-weight: bold;
+}
+
+.app-detail-content .teacher-info .name view:first-child text:last-child {
+  font-size: 0.9em;
+  color: #565656;
+  margin-left: 0.4rem;
+}
+
+.app-detail-content .teacher-info .name view:last-child {
+  font-size: 0.9em;
+  color: #565656;
+  margin-top: 0.4rem;
+}
+
+.app-detail-content .teacher-info .time {
+  font-size: 0.9em;
+  color: #565656;
+  padding-top: 0.2em;
+}
+
+.download {
+  position: fixed;
+  left: 10px; right: 10px; bottom: 10px;
+}
+
+.download button {
+  margin: 20px 0;
+  font-size: 1em;
+  color: #fff;
+  background-image: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
+  padding: 0.4em 0.3em;
+}
+
+.download button::after {
+  border: none;
+}

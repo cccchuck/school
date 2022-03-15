@@ -1,0 +1,56 @@
+<!--miniprogram/pages/index-detail/index.wxml-->
+<view class="app-detail-wrapper">
+  <view class="app-detail-content">
+    <!-- 学生信息及请假信息 -->
+    <view class="student-info box-shadow">
+      <!-- 学生信息 -->
+      <view class="info">
+        <view class="avatar">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+
+        <view class="name">
+          <view>{{ config.name ? config.name : '请填写信息' }}</view>
+          <view>245015874449205248</view>
+        </view>
+
+        <view class="type">
+          {{ content.type }}
+        </view>
+      </view>
+      <!-- 请假详情 -->
+      <view class="detail">
+        <view class="begin-time">开始时间：{{ content.beginTime }}</view>
+        <view class="end-time">结束时间：{{ content.endTime }}</view>
+        <view class="leave">是否离校：{{ content.leave }}</view>
+        <view class="leave-location" wx:if="{{ content.leave === '是' }}">外出地点：{{ content.leaveLocation }}</view>
+        <view class="location">销假地点：{{ content.location }}</view>
+        <view class="emergencyContact">紧急联系电话：{{ content.emergencyContact }}</view>
+        <view class="reason">请假事由：{{ content.reason }}</view>
+      </view>
+    </view>
+    <!-- 老师信息 -->
+    <view class="teacher-info box-shadow">
+      <view class="avatar">
+        <image src="{{ config.avatar }}"></image>
+        <image src="../../assets/index/auth.svg"></image>
+      </view>
+      <view class="name">
+        <view>
+          <text>{{ config.tname ? config.tname : '请填写信息'}}</text>
+          <text>（辅导员）</text>
+          <!-- <text>{{ config.school ? config.school : '请填写信息' }}</text> -->
+        </view>
+        <view>审批通过</view>
+      </view>
+      <view class="time">
+        {{ time }}
+      </view>
+    </view>
+
+    <!-- 下载按钮 -->
+    <view class="download" wx:if="{{ !content.destroied }}">
+      <button class="border-radius-10" bindtap="enter">下载假条</button>
+    </view>
+  </view>
+</view>

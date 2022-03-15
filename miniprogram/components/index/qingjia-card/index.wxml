@@ -1,0 +1,34 @@
+<!--components/index/qingjia-card/index.wxml-->
+<view class="cpn-card-wrapper {{ _destroied ? 'gray' : '' }}">
+  <view class="cpn-card-content" bindtap="toDetail">
+    <!-- 内容 -->
+    <view class="content">
+      <!-- 请假理由 -->
+      <view class="reason">{{ content.reason }}</view>
+      <!-- 请假类型 -->
+      <view class="type cpn-icon-text"><image src="../../../assets/index/type.svg"></image>{{ content.type }}</view>
+      <!-- 开始时间 -->
+      <view class="begin-time cpn-icon-text"><image src="../../../assets/index/time.svg"></image>{{ content.beginTime }}</view>
+      <!-- 结束时间 -->
+      <view class="end-time cpn-icon-text"><image src="../../../assets/index/time.svg"></image>{{ content.endTime }}</view>
+    </view>
+    <!-- 圆环状态 -->
+    <view class="status">
+      <view class="wrapper">
+        <view class="center">
+          <image wx:if="{{ !_destroied }}" src="../../../assets/index/ing.jpeg" style="width: 100px; height: 100px;"></image>
+          <image wx:else src="../../../assets/index/destroied.png" style="width: 100px; height: 100px;"></image>
+          <text class="{{ _destroied ? 'done' : 'ing' }}">{{ _destroied ? '已销假' : '假期中' }}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cpn-card-bar linear-gradient-ing">
+    <!-- 电子假条 -->
+    <view class="cpn-icon-text" wx:if="{{ !_destroied }}"><image src="../../../assets/index/electron.svg"></image>电子假条</view>
+    <!-- 留言 -->
+    <view class="cpn-icon-text"><image src="../../../assets/index/leaveword.svg"></image>留言</view>
+    <!-- 销假 -->
+    <view class="cpn-icon-text" bindtap="destroy" wx:if="{{ !_destroied }}"><image src="../../../assets/index/destory.svg"></image>销假</view>
+  </view>
+</view>

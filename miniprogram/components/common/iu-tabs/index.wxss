@@ -1,0 +1,22 @@
+/* components/common/iu-tabs/index.wxss */
+.cpn-tabs-content {
+  display: flex;
+  padding: 10px 0;
+}
+
+.cpn-tabs-content .cpn-tab-item {
+  flex: 1;
+  text-align: center;
+  margin: 0 10px;
+  padding: 5px 0;
+  color: #57b8ba;
+  font-weight: 500;
+  border-radius: 1em;
+  transition: background-color 300ms linear;
+}
+
+.cpn-tabs-content .cpn-tab-item.active {
+  background-color: #57b8ba;
+  color: #fff;
+  font-weight: 600;
+}

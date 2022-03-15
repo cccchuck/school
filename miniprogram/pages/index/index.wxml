@@ -1,0 +1,64 @@
+<!--index.wxml-->
+<view class="index-wrapper">
+  <!-- banner 展示图 -->
+  <view class="index-banner-wrapper box-shadow">
+    <view class="index-banner-content">
+      <image src="{{ iconAssets.bannerImg }}" mode="aspectFill"></image>
+    </view>
+    <view class="index-banner-school">
+      <image src="{{ iconAssets.schoolLogo }}"></image>
+      <text>河南财政金融学院</text>
+    </view>
+  </view>
+
+  <!-- 日常管理 -->
+  <view class="index-daily-wrapper box-shadow border-radius-10">
+    <view class="index-daily-content">
+      <view class="title">日常管理</view>
+      <view class="nav">
+        <view class="nav-item" wx:for="{{ dailyNavList }}" wx:key="icon" data-path="{{ item.path }}" bindtap="toPage">
+          <view class="nav-item-img">
+            <image src="{{ item.icon }}"></image>
+          </view>
+          <view class="nav-item-text">
+            <text>{{ item.text }}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 疫情防控 -->
+  <view class="index-daily-wrapper box-shadow border-radius-10">
+    <view class="index-daily-content">
+      <view class="title">疫情防控</view>
+      <view class="nav">
+        <view class="nav-item" wx:for="{{ epidemicNavList }}" wx:key="icon">
+          <view class="nav-item-img">
+            <image src="{{ item.icon }}"></image>
+          </view>
+          <view class="nav-item-text">
+            <text>{{ item.text }}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 校园课程 -->
+  <view class="index-daily-wrapper box-shadow border-radius-10">
+    <view class="index-daily-content">
+      <view class="title">校园课程</view>
+      <view class="nav">
+        <view class="nav-item" wx:for="{{ schoolNavList }}" wx:key="icon">
+          <view class="nav-item-img">
+            <image src="{{ item.icon }}"></image>
+          </view>
+          <view class="nav-item-text">
+            <text>{{ item.text }}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

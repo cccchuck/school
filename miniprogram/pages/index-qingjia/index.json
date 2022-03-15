@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "iu-tabs": "../../components/common/iu-tabs/index",
+    "jia-card": "../../components/index/qingjia-card/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-uploader": "@vant/weapp/uploader/index"
+  }
+}
